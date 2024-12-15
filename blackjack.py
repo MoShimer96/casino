@@ -34,7 +34,7 @@ class Blackjack:
                 break
             else:
                 continue
-        pass
+        
 
     def drawCardPlayer(self):
         Card = self.drawCard()
@@ -65,7 +65,7 @@ class Blackjack:
         print("\nPlayer's cards: ")
         for Card in self.PlayerHand:
             print(Card)
-        print(f"Player's pint total: {self.PlayerTotal}\n")
+        print(f"Player's point total: {self.PlayerTotal}\n")
         pass
 
     def sortHands(self):
