@@ -92,6 +92,7 @@ class Blackjack:
         self.sortHands()
         self.PlayerTotal = 0
         self.DealerTotal = 0
+
         for Card in self.PlayerHand:
             if Card[0] == 'A' and self.PlayerTotal + 11 > 21:
                 self.PlayerTotal += Card[1][0]
@@ -107,16 +108,12 @@ class Blackjack:
                 self.DealerTotal += 11
             else:
                 self.DealerTotal += Card[1]
+
         print(f"Player's total: {self.PlayerTotal}\n")
         return self.PlayerTotal, self.DealerTotal
 
     def displayPoint(self):
         print(f"Dealer's total: {self.DealerTotal} Player's total: {self.PlayerTotal}\n")
- 
-
-        
-
-
         pass
     
     def displayCardEndOfGame(self):

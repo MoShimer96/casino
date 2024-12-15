@@ -6,7 +6,6 @@ class Player:
         self.Funds = Funds
 
 
-
 def createPlayer():
     NameInput = input("What is your name: ")
     FundsInput = int(input("How much do you want to add to your casino account: "))

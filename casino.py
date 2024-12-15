@@ -37,12 +37,6 @@ def playBlackjack(Player, Bet):
         elif Playertotal == DealerTotal:
             print("It's a tie! Bet returned.")
             break
-
-
-
-                    
-                
-            
             
         elif user_input == 'H':
             newGame.drawCardPlayer() 
