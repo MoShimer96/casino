@@ -26,18 +26,18 @@ def playBlackjack(Player, Bet):
             print("\nYou chose to stand.")
             newGame.displayCardEndOfGame()
 
-        if Playertotal <= 21 and DealerTotal < Playertotal:
-            Player.Funds += Bet * 2 # Player wins their bet amount
-            print("\nYou Won!")
-            break
-        elif DealerTotal <= 21 and DealerTotal > Playertotal:
-            Player.Funds -= Bet  # Player loses their bet amount
-            print("\nHouse Wins!")
-            break
-        elif Playertotal == DealerTotal:
-            print("\nIt's a tie! Bet returned.")
-            break
-            
+            if Playertotal <= 21 and DealerTotal < Playertotal:
+                Player.Funds += Bet * 2 # Player wins their bet amount
+                print("\nYou Won!")
+                break
+            elif DealerTotal <= 21 and DealerTotal > Playertotal:
+                Player.Funds -= Bet  # Player loses their bet amount
+                print("\nHouse Wins!")
+                break
+            elif Playertotal == DealerTotal:
+                print("\nIt's a tie! Bet returned.")
+                break
+                
         elif user_input == 'H':
             newGame.drawCardPlayer() 
             newGame.drawCardDealer() 
