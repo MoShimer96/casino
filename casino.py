@@ -56,16 +56,15 @@ def playSlots(Player):
         UserInput = input("Enter 'S' to spin or 'Q' to quit: ")
         if UserInput.upper() == 'S':
             SlotBet = int(input("How much do you want to bet: "))
+            Player.Funds -= SlotBet
             NewSlotMachine = slotmachine.Slotmachine(SlotBet)
             NewSlotMachine.spinSlotMachine()
             NewSlotMachine.checkForMatches()
-            Multiplier = NewSlotMachine.calcaulteMultiplier()
+            Result = NewSlotMachine.calculateResult()
 
-            Player.Funds -= SlotBet
-
-            if Multiplier > 0:
-                Player.Funds += SlotBet + (SlotBet * Multiplier)
-                
+            
+            if Result > 0:
+                Player.Funds += Result
             continue
         else:
             break
