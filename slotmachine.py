@@ -66,7 +66,7 @@ class Slotmachine:
                     print("Vertical match "+ self.ResultList[i][j], self.ResultList[i+1][j] + ": 0.5")
                     self.Count += 0.5
 
-    def calcaulteMultiplier(self):
+    def calculateResult(self):
         BetMultiplier = 0
 
         if self.Count > 0:
@@ -76,9 +76,11 @@ class Slotmachine:
 
         if BetMultiplier > 0:
             print(f"Your total winning: {self.Bet*BetMultiplier}")
+            return (self.Bet +  self.Bet*BetMultiplier)
         else:
             print("You lost")
-        return BetMultiplier
+            return 0
+        
         
     def __repr__(self):
         return """Welcome to the slot machine. Row matches like this 🍀 🍀 🍀 will multiply winnings by X2\nPartial matches 0.5"""
