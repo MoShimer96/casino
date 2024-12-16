@@ -1,5 +1,5 @@
 import blackjack
-
+import slotmachine
 
 
 def playBlackjack(Player, Bet):
@@ -14,7 +14,7 @@ def playBlackjack(Player, Bet):
 
         # Check for user bust
         if Playertotal > 21:
-            print("Bust! You lose.")
+            print("\nBust! You lose.")
             newGame.displayCardEndOfGame()
             Player.Funds -= Bet
             break
@@ -23,19 +23,19 @@ def playBlackjack(Player, Bet):
         user_input = input("Enter H to Hit or S to Stand: ").upper()
 
         if user_input == 'S':
-            print("You chose to stand.")
+            print("\nYou chose to stand.")
             newGame.displayCardEndOfGame()
 
         if Playertotal <= 21 and DealerTotal < Playertotal:
             Player.Funds += Bet * 2 # Player wins their bet amount
-            print("You Won!")
+            print("\nYou Won!")
             break
         elif DealerTotal <= 21 and DealerTotal > Playertotal:
             Player.Funds -= Bet  # Player loses their bet amount
-            print("House Wins!")
+            print("\nHouse Wins!")
             break
         elif Playertotal == DealerTotal:
-            print("It's a tie! Bet returned.")
+            print("\nIt's a tie! Bet returned.")
             break
             
         elif user_input == 'H':
@@ -51,7 +51,21 @@ def playBlackjack(Player, Bet):
 
 
 
+def playSlots(Player):
+    while True:
+        UserInput = input("Enter 'S' to spin or 'Q' to quit: ")
+        if UserInput.upper() == 'S':
+            SlotBet = int(input("How much do you want to bet: "))
+            NewSlotMachine = slotmachine.Slotmachine(SlotBet)
+            NewSlotMachine.spinSlotMachine()
+            NewSlotMachine.checkForMatches()
+            Multiplier = NewSlotMachine.calcaulteMultiplier()
 
+            Player.Funds -= SlotBet
 
-
-
+            if Multiplier > 0:
+                Player.Funds += SlotBet + (SlotBet * Multiplier)
+                
+            continue
+        else:
+            break

@@ -8,11 +8,11 @@ class Player:
 
 def createPlayer():
     NameInput = input("What is your name: ")
-    FundsInput = int(input("How much do you want to add to your casino account: "))
-    newPlayer = Player(NameInput, FundsInput)
-    return newPlayer
+    FundsInput = float(input("How much do you want to add to your casino account: "))
+    NewPlayer = Player(NameInput, FundsInput)
+    return NewPlayer
 
-myPlayer = createPlayer()
+MyPlayer = createPlayer()
 
 def menu():
     print("\nWelcome to the Casino!")
@@ -21,15 +21,19 @@ def menu():
     print("3. Play Roulette")
     print("0. Quit")
     while True:
-        user_input = int(input("Enter your choice (0-3):"))
+        UserInput = int(input("Enter your choice (0-3):"))
 
-        if user_input == 0:
-            print("Thank you for playing.")
+        if UserInput == 0:
+            print("\nThank you for playing.")
             break
-        elif user_input == 1:
-            casino.playBlackjack(Player = myPlayer, Bet = 100)
-            print(f"\nYou account has been updated.\nCurrent balance:{myPlayer.Funds}")
+        elif UserInput == 1:
+            PlaceBet = float(input("Place your bet: "))
+            casino.playBlackjack(Player = MyPlayer, Bet = PlaceBet)
+            print(f"\nYou account has been updated.\nCurrent balance:{MyPlayer.Funds}")
             continue
+        elif UserInput == 2:
+            casino.playSlots(MyPlayer)
+            print(f"\nYou account has been updated.\nCurrent balance:{MyPlayer.Funds}")
         else:
             print("Invalid input.\n")
             continue
